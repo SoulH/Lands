@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lands.iOS", "Lands\Lands.iO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lands.UWP", "Lands\Lands.UWP\Lands.UWP.csproj", "{F648CC09-9E38-4573-BB66-0F11D48988CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lands", "Lands\Lands\Lands.csproj", "{29CA25EC-D2AE-4DFB-8D67-CA04E05B8915}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lands", "Lands\Lands\Lands.csproj", "{29CA25EC-D2AE-4DFB-8D67-CA04E05B8915}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

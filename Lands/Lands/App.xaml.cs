@@ -1,4 +1,5 @@
 ﻿using Lands.Models;
+using Lands.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Lands
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+            MainPage = new NavigationPage(new LoginPage()); /*/new MainPage();/*/
 		}
 
 		protected override void OnStart ()
