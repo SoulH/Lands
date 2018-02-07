@@ -1,6 +1,7 @@
 ﻿using Lands.Data;
 using Lands.Helpers;
 using Lands.Models;
+using Lands.Services;
 using System;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -10,7 +11,6 @@ namespace Lands.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         #region Commands
-        public INavigation Navigation { get; set; }
         public ICommand LoginCommand { get; set; }
         #endregion
 
@@ -44,13 +44,12 @@ namespace Lands.ViewModels
         }
         #endregion
 
-        public LoginViewModel(INavigation nav = null)
+        public LoginViewModel()
         {
             LoginCommand = new Command(Login);
             _user = string.Empty;
             _password = string.Empty;
             _remember = true;
-            Navigation = nav;
             Message = string.Empty;
         }
 
@@ -71,8 +70,7 @@ namespace Lands.ViewModels
                         if (usr?.Password == _password)
                         {
                             Settings.IsLoggedIn = true;
-                            await App.Current.MainPage.Navigation.PushAsync(new MainPage());
-                            App.Current.MainPage.Navigation.RemovePage(Navigation.NavigationStack[0]);
+                            await NavigationService.ChangeToPageAsync(new MainPage());
                         }
                         else
                         {
