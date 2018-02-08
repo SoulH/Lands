@@ -12,62 +12,93 @@
             Android="20,20,20,10"/>
     </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout>
-            <Image Source="logoonu.png"
+        <ScrollView Orientation="Vertical" 
+                    VerticalOptions="FillAndExpand" 
+                    HorizontalOptions="FillAndExpand">
+            <StackLayout>
+                <Image Source="logoonu.png"
                    HeightRequest="100"/>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2*"/>
-                </Grid.ColumnDefinitions>
-                <Label Text="User"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="User"
                    FontAttributes="Bold"
                    HorizontalOptions="End"
                    Grid.Row="0"
                    Grid.Column="0"/>
-                <Entry Placeholder="Your Email or Username"
+                    <Entry Placeholder="Your Email or Username"
                        Text="{Binding User, Mode=TwoWay}"
                        TextColor="Black"
                        Grid.Row="0"
                        Grid.Column="1"/>
-                <Label Text="Password"
+                    <Label Text="Password"
                        FontAttributes="Bold"
                        HorizontalOptions="End"
                        Grid.Row="1"
                        Grid.Column="0"/>
-                <Entry Placeholder="Your Password"
+                    <Entry Placeholder="Your Password"
                        Text="{Binding Password, Mode=TwoWay}"
                        TextColor="Black"
                        IsPassword="True"
                        Grid.Row="1"
                        Grid.Column="1"/>
-                <Label Text="Remember me"
+                    <Label Text="Remember me"
                        FontAttributes="Bold"
                        HorizontalOptions="End"
                        Grid.Row="2"
                        Grid.Column="0"/>
-                <Switch IsToggled="{Binding Remember, Mode=TwoWay}"
+                    <Switch IsToggled="{Binding Remember, Mode=TwoWay}"
                         HorizontalOptions="End"
                         Grid.Row="2"
                         Grid.Column="1"/>
-            </Grid>
-            
-            <ActivityIndicator/>
-            <Button Text="Login"
+                </Grid>
+
+                <ActivityIndicator/>
+                <Button Text="Login"
                     TextColor="White"
                     BackgroundColor="Blue"
                     Command="{Binding LoginCommand}"/>
-            <Button Text="Register"
+                <Button Text="Register"
                     TextColor="White"
-                    BackgroundColor="Blue"/>
-            <Label Text="Forgot your password?"
-                   FontAttributes="Italic"
-                   />
-        </StackLayout>
+                    BackgroundColor="Purple"/>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center">
+                    <Image Source="facebook_icon.png"
+                           HeightRequest="32">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding FacebookLoginCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="twitter_icon.png"
+                           HeightRequest="32">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TwitterLoginCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="instagram_icon.png"
+                           HeightRequest="32">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding InstagramLoginCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+                <Label Text="Forgot your password?"
+                       FontAttributes="Italic"
+                       TextColor="Blue"
+                       HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
